@@ -9,6 +9,7 @@ import targetRoutes from "./routes/targetRoutes.js";
 import { errorHandler } from "./middleware/errorMiddleware.js";
 
 dotenv.config();
+
 connectDB();
 
 const port = process.env.PORT || 5000;
