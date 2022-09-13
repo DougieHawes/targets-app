@@ -1,11 +1,15 @@
+import colors from "colors";
 import dotenv from "dotenv";
 import express from "express";
+
+import connectDB from "./config/db.js";
 
 import targetRoutes from "./routes/targetRoutes.js";
 
 import { errorHandler } from "./middleware/errorMiddleware.js";
 
 dotenv.config();
+connectDB();
 
 const port = process.env.PORT || 5000;
 
