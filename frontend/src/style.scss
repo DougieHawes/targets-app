@@ -1,0 +1,82 @@
+$colour1: #3b2f2f;
+$colour2: #f8f8f8;
+$colour3: #128482;
+$colour4: #d0491e;
+
+* {
+  box-sizing: border-box;
+  color: $colour1;
+  font-family: sans-serif;
+  list-style: none;
+  margin: 0;
+  text-decoration: none;
+}
+
+.app {
+  background-color: $colour2;
+  max-height: 100vh;
+  min-height: 100vh;
+  overflow: hidden;
+  .routes {
+    padding: 6px 2%;
+  }
+}
+
+.header {
+  background-color: $colour3;
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 2%;
+  .header-title-box {
+    .title {
+      color: $colour2;
+      font-size: 35px;
+    }
+  }
+  .header-links {
+    display: flex;
+    justify-content: space-between;
+    width: 90px;
+    .header-link {
+      * {
+        color: $colour2;
+        font-size: 35px;
+
+        transition: 0.3s color ease-in-out;
+      }
+    }
+    .header-link:hover {
+      * {
+        color: $colour4;
+      }
+    }
+  }
+}
+
+.page {
+  .page-title {
+    font-size: 28px;
+  }
+}
+
+.form {
+  max-width: 600px;
+  .input,
+  .button {
+    border-radius: 6px;
+    font-size: 21px;
+    height: 28px;
+    margin: 2px 0;
+    text-align: center;
+    width: 100%;
+  }
+  .input {
+    border: 1px solid $colour1;
+  }
+  .button {
+    background-color: $colour3;
+    border: none;
+    color: $colour2;
+    cursor: pointer;
+  }
+}
