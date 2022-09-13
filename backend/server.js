@@ -5,6 +5,7 @@ import express from "express";
 import connectDB from "./config/db.js";
 
 import targetRoutes from "./routes/targetRoutes.js";
+import userRoutes from "./routes/userRoutes.js";
 
 import { errorHandler } from "./middleware/errorMiddleware.js";
 
@@ -20,6 +21,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use("/api/targets", targetRoutes);
+app.use("/api/users", userRoutes);
 
 app.use(errorHandler);
 

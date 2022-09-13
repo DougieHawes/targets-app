@@ -6,10 +6,11 @@ import {
   updateTarget,
   deleteTarget,
 } from "../controllers/targetControllers.js";
+import { protect } from "../middleware/authMiddleware.js";
 
 const router = Router();
 
-router.route("/").post(createTarget).get(readTargets);
-router.route("/:id").put(updateTarget).delete(deleteTarget);
+router.route("/").post(protect, createTarget).get(protect, readTargets);
+router.route("/:id").put(protect, updateTarget).delete(protect, deleteTarget);
 
 export default router;
