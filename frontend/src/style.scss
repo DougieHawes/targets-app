@@ -66,17 +66,18 @@ $colour4: #d0491e;
     border-radius: 6px;
     font-size: 21px;
     height: 28px;
-    margin: 2px 0;
     text-align: center;
     width: 100%;
   }
   .input {
     border: 1px solid $colour1;
+    margin: 2px 0;
   }
   .button {
     background-color: $colour3;
     border: none;
     color: $colour2;
     cursor: pointer;
+    margin-top: 14px;
   }
 }
