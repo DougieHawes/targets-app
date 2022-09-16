@@ -50,6 +50,26 @@ export const readTargets = createAsyncThunk(
   }
 );
 
+export const deleteTarget = createAsyncThunk(
+  "targets/delete",
+  async (id, thunkAPI) => {
+    try {
+      const token = thunkAPI.getState().auth.user.token;
+
+      return await targetService.deleteTarget(id, token);
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+
+      return thunkAPI.rejectWithValue(message);
+    }
+  }
+);
+
 export const targetSlice = createSlice({
   name: "target",
   initialState: initialState,
@@ -80,6 +100,21 @@ export const targetSlice = createSlice({
         state.targets = action.payload;
       })
       .addCase(readTargets.rejected, (state, action) => {
+        state.isError = true;
+        state.isLoading = false;
+        state.message(action.payload);
+      })
+      .addCase(deleteTarget.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(deleteTarget.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.targets = state.targets.filter(
+          (i) => i._id !== action.payload.id
+        );
+      })
+      .addCase(deleteTarget.rejected, (state, action) => {
         state.isError = true;
         state.isLoading = false;
         state.message(action.payload);

@@ -81,3 +81,39 @@ $colour4: #d0491e;
     margin-top: 14px;
   }
 }
+
+.target-grid {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 14px;
+  .target-card {
+    margin: 3px;
+    width: 210px;
+    .target-card-icon {
+      background-color: $colour4;
+      border: 2px solid $colour3;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 42px;
+      height: 60px;
+      margin-left: 50%;
+      padding-top: 7px;
+      text-align: center;
+      transform: translateX(-50%);
+      width: 60px;
+      * {
+        color: $colour2;
+      }
+    }
+    .target-card-text {
+      background-color: $colour2;
+      border: 2px solid $colour3;
+      border-radius: 14px;
+      margin-top: -30px;
+      max-height: 140px;
+      min-height: 140px;
+      padding-top: 30px;
+      text-align: center;
+    }
+  }
+}

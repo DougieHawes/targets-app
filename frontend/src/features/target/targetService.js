@@ -26,6 +26,18 @@ const readTargets = async (token) => {
   return response.data;
 };
 
-const targetService = { createTarget, readTargets };
+const deleteTarget = async (targetId, token) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
+  const response = await axios.delete(API_URL + targetId, config);
+
+  return response.data;
+};
+
+const targetService = { createTarget, deleteTarget, readTargets };
 
 export default targetService;
