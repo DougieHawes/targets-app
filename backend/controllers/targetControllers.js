@@ -31,14 +31,12 @@ export const updateTarget = asyncHandler(async (req, res) => {
     throw new Error("target not found");
   }
 
-  const user = await User.findById(req.user.id);
-
-  if (!user) {
+  if (!req.user) {
     res.status(401);
     throw new Error("user not found");
   }
 
-  if (target.user.toString() !== user.id) {
+  if (target.user.toString() !== req.user.id) {
     res.status(401);
     throw new Error("user not authorised");
   }
@@ -60,14 +58,12 @@ export const deleteTarget = asyncHandler(async (req, res) => {
     throw new Error("target not found");
   }
 
-  const user = await User.findById(req.user.id);
-
-  if (!user) {
+  if (!req.user) {
     res.status(401);
     throw new Error("user not found");
   }
 
-  if (target.user.toString() !== user.id) {
+  if (target.user.toString() !== req.user.id) {
     res.status(401);
     throw new Error("user not authorised");
   }
